@@ -1,16 +1,16 @@
-import bootState from './States/boot';
-import loadState from './States/load';
-import menuState from './States/menu';
-import playState from './States/play';
-import winState from './States/win';
-import loseState from './States/lose';
+import bootState from './states/boot';
+import loadState from './states/load';
+import menuState from './states/menu';
+import playState from './states/play';
+import winState from './states/win';
+import loseState from './states/lose';
 
 window.PIXI = require('phaser-ce/build/custom/pixi');
 window.p2 = require('phaser-ce/build/custom/p2');
 window.Phaser = require('phaser-ce/build/custom/phaser-split');
 
 export default function Simon() {
-    var game = new window.Phaser.Game(800, 800, window.Phaser.AUTO, 'myCanvas');
+    var game = new window.Phaser.Game(800, 600, window.Phaser.AUTO, 'myCanvas');
 
     game.state.add('boot', bootState);
     game.state.add('load', loadState);
