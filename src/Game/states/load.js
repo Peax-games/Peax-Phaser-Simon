@@ -22,13 +22,13 @@ export default function loadState() {
 
             this.load.setPreloadSprite(this.preloadBar);
 
-            this.load.atlas('spriteset', 'assets/spriteset.png', 'assets/spriteset.jsona');
-            this.load.image('tweet', 'assets/twit.png');
-            this.load.audio('sfx', ['assets/sfx.mp3', 'assets/sfx.ogg', 'assets/sfx.wav', 'assets/sfx.m4a']);
+            this.load.atlas('spriteset', 'img/spriteset.png', 'img/spriteset.jsona');
+            // this.load.image('tweet', 'img/twit.png');
+            // this.load.audio('sfx', ['assets/sfx.mp3', 'assets/sfx.ogg', 'assets/sfx.wav', 'assets/sfx.m4a']);
 
         },
         create: function () {
-            this.game.state.start('play')
+            this.game.state.start('colors')
         }
     }
 }

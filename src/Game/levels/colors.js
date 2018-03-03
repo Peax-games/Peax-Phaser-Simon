@@ -1,4 +1,4 @@
-export default function colorsPlayState() {
+export default function colorsPlayState(game) {
     return {
         create: function () {
             //declare a few 'global' variables here
@@ -38,22 +38,22 @@ export default function colorsPlayState() {
             this.playerText.anchor.setTo(0.5, 0.5);
             this.playerText.alpha = 0;
 
-            this.musicButton = this.add.sprite(this.world.width - 60, this.world.height - 10, 'spriteset');
-            this.musicButton.frameName = 'music_on.png';
-            this.musicButton.anchor.setTo(0, 1);
-            this.musicButton.scale.setTo(0.5, 0.5);
-            this.musicButton.inputEnabled = true;
-            this.musicButton.input.useHandCursor = true;
-            this.musicButton.events.onInputDown.add(this.musicToggle, this);
+            // this.musicButton = this.add.sprite(this.world.width - 60, this.world.height - 10, 'spriteset');
+            // this.musicButton.frameName = 'music_on.png';
+            // this.musicButton.anchor.setTo(0, 1);
+            // this.musicButton.scale.setTo(0.5, 0.5);
+            // this.musicButton.inputEnabled = true;
+            // this.musicButton.input.useHandCursor = true;
+            // this.musicButton.events.onInputDown.add(this.musicToggle, this);
 
-            this.tweetButton = this.add.sprite(this.world.centerX, this.world.height - 10, 'tweet');
-            this.tweetButton.anchor.setTo(0.5, 1);
-            this.tweetButton.scale.setTo(0.5, 0.5);
-            this.tweetButton.inputEnabled = true;
-            this.tweetButton.input.useHandCursor = true;
-            this.tweetButton.events.onInputDown.add(this.tweetScore, this);
-            this.tweetButton.alpha = 0;
-            this.tweetButton.kill();
+            // this.tweetButton = this.add.sprite(this.world.centerX, this.world.height - 10, 'tweet');
+            // this.tweetButton.anchor.setTo(0.5, 1);
+            // this.tweetButton.scale.setTo(0.5, 0.5);
+            // this.tweetButton.inputEnabled = true;
+            // this.tweetButton.input.useHandCursor = true;
+            // this.tweetButton.events.onInputDown.add(this.tweetScore, this);
+            // this.tweetButton.alpha = 0;
+            // this.tweetButton.kill();
         },
 
         startGame: function () {
@@ -63,13 +63,13 @@ export default function colorsPlayState() {
                 is dismissed too. Hence the double click */
 
                 //tween the interface.. .show some (alpha:1), hide some (alpha : 0)
-                var temp = this.add.tween(this.mask).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.tapText).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.instructionText).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.scoreText).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.titleimage).to({ y: 50 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.playerText).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-                this.add.tween(this.tweetButton).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
+                var temp = this.add.tween(this.mask).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.tapText).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.instructionText).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.scoreText).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.titleimage).to({ y: 50 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.playerText).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+                this.add.tween(this.tweetButton).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
 
                 this.scoreText.setText('0');
                 temp.onComplete.add(function () {
@@ -200,13 +200,13 @@ export default function colorsPlayState() {
                 this.fx.play('death');
             }
 
-            var temp = this.add.tween(this.mask).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.tapText).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.instructionText).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.scoreText).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.titleimage).to({ y: 100 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.playerText).to({ alpha: 0 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
-            this.add.tween(this.tweetButton).to({ alpha: 1 }, 500, Phaser.Easing.Sinusoidal.InOut, true);
+            var temp = this.add.tween(this.mask).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.tapText).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.instructionText).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.scoreText).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.titleimage).to({ y: 100 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.playerText).to({ alpha: 0 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
+            this.add.tween(this.tweetButton).to({ alpha: 1 }, 500, window.Phaser.Easing.Sinusoidal.InOut, true);
 
             temp.onComplete.add(function () {
                 this.mask.reset(0, 0);
@@ -226,12 +226,12 @@ export default function colorsPlayState() {
             }
         },
 
-        tweetScore: function () {
-            //share score on twitter
-            var tweetbegin = 'http://twitter.com/home?status=';
-            var tweettxt = 'This game - ' + window.location.href + '- says I have ' + this.score + ' units of memory!';
-            var finaltweet = tweetbegin + encodeURIComponent(tweettxt);
-            window.open(finaltweet, '_blank');
-        }
+        // tweetScore: function () {
+        //     //share score on twitter
+        //     var tweetbegin = 'http://twitter.com/home?status=';
+        //     var tweettxt = 'This game - ' + window.location.href + '- says I have ' + this.score + ' units of memory!';
+        //     var finaltweet = tweetbegin + encodeURIComponent(tweettxt);
+        //     window.open(finaltweet, '_blank');
+        // }
     }
 }
